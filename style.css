@@ -151,7 +151,7 @@ footer {
 .hero-image {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('hero.jpg'); /* アップロードした画像ファイル名 */
+  background-image: url(img/main.jpg); /* アップロードした画像ファイル名 */
   background-size: cover;
   background-position: center;
   filter: brightness(0.6); /* 少し暗くして文字を見やすく */
