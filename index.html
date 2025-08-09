@@ -277,6 +277,152 @@ header{
   .badge{ font-size: 11px; padding:6px 10px; }
   nav a{ padding:8px 10px; }
 }
+/* =========================
+   1) トークンを少しだけ強コントラスト化
+   ========================= */
+   :root{
+  --text:#F2F5F4;         /* 主テキスト（ほぼ白） */
+  --muted:#CFD6D1;        /* サブテキスト（白寄りにして暗背景で読みやすく） */
+  --border: rgba(255,255,255,.18);
+  --border-strong: rgba(255,255,255,.26);
+}
+
+/* 既存の color:var(--white) を置き換えたい場合だけ */
+body{ color: var(--text); }
+
+/* =========================
+   2) リンク（色で識別＋ホバーで下線＝見分けやすい）
+   ========================= */
+a{
+  color: var(--brand-2);                /* 緑系を“リンク専用色”に */
+  text-decoration-thickness: .08em;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in oklab, currentColor 40%, transparent);
+}
+a:hover, a:focus-visible{
+  text-decoration: underline;
+}
+
+/* ナビは背景が暗いので文字は明るく、ホバーでしっかり反転 */
+nav a{
+  color: var(--muted);
+}
+nav a:hover, nav a:focus-visible{
+  color: var(--text);
+  background: rgba(255,255,255,.08);
+  outline: none;
+}
+
+/* =========================
+   3) カード/セクション/ボーダー類（境界をはっきり）
+   ========================= */
+.card,
+.about-box,
+.contact-box,
+.hero-card{
+  background: rgba(15,23,21,.92);        /* 透過を少し減らして面をクッキリ */
+  border: 1px solid var(--border);
+}
+
+.metric{
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
+}
+section.section{
+  border-top: 1px solid var(--border);
+}
+
+/* 見出しと説明文のコントラスト差を明確に */
+.section h2,
+.hero h1{ color: #fff; }
+.section .sub,
+.hero p.lead{ color: var(--muted); }
+
+/* =========================
+   4) ボタン（背景・枠・テキストコントラストを底上げ）
+   ========================= */
+.btn{
+  color:#fff;
+  border: 1px solid var(--border-strong);
+}
+.btn.primary{
+  filter: saturate(1.05) contrast(1.05);
+}
+.btn.primary:hover,
+.btn.primary:focus-visible{
+  transform: translateY(-1px);
+  filter: saturate(1.1) contrast(1.1) brightness(1.05);
+}
+.btn.ghost{
+  background: rgba(255,255,255,.12);        /* .06 → .12 で背景を少し濃く */
+  color:#fff;
+}
+.btn.ghost:hover,
+.btn.ghost:focus-visible{
+  background: rgba(255,255,255,.18);
+}
+
+/* =========================
+   5) フォーム（枠線・プレースホルダ・フォーカス）
+   ========================= */
+#contactForm input,
+#contactForm textarea{
+  background: rgba(255,255,255,.08);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+}
+#contactForm input::placeholder,
+#contactForm textarea::placeholder{
+  color: color-mix(in oklab, var(--muted) 75%, transparent);
+}
+#contactForm input:focus,
+#contactForm textarea:focus{
+  outline: 2px solid var(--brand-2);
+  outline-offset: 2px;
+}
+
+/* 送信ボタンは幅広＋視認性高く */
+#submitBtn{
+  border: 1px solid var(--border-strong) !important;
+}
+
+/* =========================
+   6) ヒーロー（動画＋オーバーレイは活かしつつ文字は白寄り）
+   ========================= */
+.hero h1,
+.hero p.lead{
+  color:#fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.6), 0 0 1px rgba(0,0,0,.3);
+}
+
+/* =========================
+   7) フォーカス可視化（キーボード操作の視認性UP）
+   ========================= */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* =========================
+   8) 高コントラスト環境に自動最適化
+   ========================= */
+@media (prefers-contrast: more){
+  .card,
+  .about-box,
+  .contact-box,
+  .hero-card,
+  .metric{
+    border-color: rgba(255,255,255,.38);
+  }
+  .btn.ghost{ background: rgba(255,255,255,.2); }
+  .hero::after{
+    background: linear-gradient(180deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.5) 100%) !important;
+  }
+}
 
 
   </style>
