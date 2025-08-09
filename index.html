@@ -2,64 +2,181 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>酵素株式会社 | 自然と命の力を未来へ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>酵素株式会社 | 自然と技術で、命にエネルギーを。</title>
+  <meta name="description" content="酵素株式会社は、自然由来の発酵技術で酵素ドリンクの製造・OEMを行う佐賀のものづくり企業です。小ロットから量産まで柔軟対応。" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
-    <h1>酵素株式会社</h1>
-    <nav>
-      <a href="#hero">ホーム</a>
-      <a href="#service">サービス</a>
-      <a href="#products">商品紹介</a>
-      <a href="#contact">お問い合わせ</a>
-    </nav>
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="酵素株式会社 ホーム">
+        <div class="logo-mark" aria-hidden="true"><span>酵</span></div>
+        <div>酵素株式会社</div>
+      </a>
+      <nav aria-label="主要ナビゲーション">
+        <ul>
+          <li><a href="#service">サービス</a></li>
+          <li><a href="#products">商品紹介</a></li>
+          <li><a href="#about">私たちについて</a></li>
+          <li><a href="#contact" class="cta">OEMのご相談</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="hero" class="hero">
-    <div class="hero-image"></div>
-    <div class="hero-text">
-      <h2>自然の恵みを凝縮した、こだわりの酵素ドリンク製造</h2>
-      <p>発酵の力で健康と美味しさをお届けします。</p>
-    </div>
-  </section>
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+  <!-- 背景動画 -->
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="video/fv.mp4" type="video/mp4" />
+    <source src="video/fv.webm" type="video/webm" />
+    <!-- fallback -->
+    <img src="img/main.jpg" alt="">
+  </video>
 
-  <section id="service" class="section service">
-    <h2>酵素ドリンクの製造サービス</h2>
-    <p>私たちは、厳選した自然素材を使い、発酵技術で健康と美味しさを追求した酵素ドリンクを製造しています。</p>
-    <ul>
-      <li>安心安全な原材料の選定</li>
-      <li>独自の発酵技術で豊かな味わい</li>
-      <li>OEM対応可能：オリジナル酵素ドリンクの製造</li>
-      <li>小ロットから大量生産まで柔軟対応</li>
-    </ul>
-  </section>
-
-  <section id="products" class="section products">
-    <h2>商品紹介</h2>
-    <div class="product-card">
-      <h3>酵素ドリンク</h3>
-      <p>定番の酵素ドリンク。厳選素材と自然発酵で丁寧に製造しています。</p>
+  <div class="container hero-inner">
+    <span class="badge">一期一会 — その一滴が、未来を変える</span>
+    <div class="hero-grid">
+      <div>
+        <h1>酵素のちからで、命にエネルギーを。</h1>
+        <p class="lead">自然素材 × 発酵技術 × 安心設計。小ロットから大量生産まで、貴社のブランドに最適な酵素ドリンクをオーダーメイドで製造します。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">資料請求・OEM相談</a>
+          <a class="btn ghost" href="#products">商品をみる</a>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric"><div class="kpi">35年以上</div><div class="cap">発酵飲料の知見</div></div>
+          <div class="metric"><div class="kpi">200万本</div><div class="cap">累計製造実績の土台*</div></div>
+          <div class="metric"><div class="kpi">OEM/ODM</div><div class="cap">企画・設計まで一貫対応</div></div>
+        </div>
+        <small style="color:var(--muted); display:block; margin-top:6px">*グループの製造・運用知見を踏まえた目安表記</small>
+      </div>
+      <div class="hero-card">
+        <h3 style="margin:0 0 6px">こんなご要望に応えます</h3>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>無添加／国産素材で差別化したい</li>
+          <li>EC・サロン向けに“飲みやすさ”重視で設計</li>
+          <li>まずは小ロットでテスト販売したい</li>
+          <li>スピーディにOEMを立ち上げたい</li>
+        </ul>
+      </div>
     </div>
-    <div class="product-card">
-      <h3>プレミアム酵素</h3>
-      <p>高級ライン。味わい・栄養価にこだわった逸品です。</p>
-    </div>
-  </section>
+  </div>
+    </section> 
+    <!-- Service -->
+    <section id="service" class="section">
+      <div class="container">
+        <h2>酵素ドリンクの製造サービス</h2>
+        <p class="sub">厳選した自然素材と独自の発酵技術で、健康と美味しさを両立。OEM/ODM で企画から量産まで伴走します。</p>
+        <div class="cards">
+          <article class="card">
+            <h3>原材料へのこだわり</h3>
+            <p>佐賀をはじめとする国産中心の素材選定。体に不要な添加物は極力使いません。</p>
+            <div class="tags"><span class="tag">国産素材</span><span class="tag">無添加設計</span><span class="tag">アレルゲン配慮</span></div>
+          </article>
+          <article class="card">
+            <h3>独自の発酵プロセス</h3>
+            <p>原料の持ち味を活かし、安定した品質と飲みやすさを両立するプロセス設計。</p>
+            <div class="tags"><span class="tag">安定品質</span><span class="tag">風味最適化</span><span class="tag">ロット管理</span></div>
+          </article>
+          <article class="card">
+            <h3>OEM/ODM の柔軟性</h3>
+            <p>味・機能・容量・パッケージまでカスタム可能。小ロット試作から大型量産まで対応。</p>
+            <div class="tags"><span class="tag">小ロット</span><span class="tag">スピード試作</span><span class="tag">EC/サロン対応</span></div>
+          </article>
+          <article class="card">
+            <h3>品質保証と法令順守</h3>
+            <p>食品表示・薬機法に配慮した表現のご提案や、検査・トレーサビリティの整備を支援。</p>
+            <div class="tags"><span class="tag">表示サポート</span><span class="tag">検査手配</span><span class="tag">トレース</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <section id="contact" class="section contact">
-    <h2>お問い合わせ</h2>
-    <p>OEM製造のご相談や製品に関するお問い合わせは、下記までお気軽にどうぞ。</p>
-    <p>📧 <a href="mailto:kouso.inc@gmail.com">kouso.inc@gmail.com</a><br />
-       📞 090-6982-5502（代表）<br />
-       📍 佐賀県佐賀市高木瀬5-13-21</p>
-  </section>
+    <!-- Products -->
+    <section id="products" class="section">
+      <div class="container">
+        <h2>商品紹介</h2>
+        <p class="sub">ベースレシピを軸に、ターゲットやチャネルに合わせた味設計・容量設計が可能です。</p>
+        <div class="product-grid">
+          <article class="product">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="inner">
+              <h3>酵素ドリンク（スタンダード）</h3>
+              <p>毎日の健康習慣に。フルーツベースで飲みやすく、続けやすい定番ライン。</p>
+            </div>
+          </article>
+          <article class="product">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="inner">
+              <h3>プレミアム酵素</h3>
+              <p>素材の比率と熟成工程を最適化。味わいと満足感を高めたハイエンドモデル。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>私たちについて</h2>
+        <p class="sub">自然のちからを信じ、人の命を支える産業を未来へ。</p>
+        <div class="about-grid">
+          <div class="about-box">
+            <h3>創業の想い</h3>
+            <p>祖父の介護と相続問題をきっかけに「命」と向き合い、信託銀行で人の想いと資産を守る仕事に従事。その後、実家の町工場の継承を見据え、自然と技術の融合を目指して「酵素株式会社」を立ち上げました。</p>
+            <h3 style="margin-top:18px">会社概要</h3>
+            <ul>
+              <li><strong>会社名：</strong>酵素株式会社</li>
+              <li><strong>所在地：</strong>佐賀県佐賀市高木瀬5-13-21</li>
+              <li><strong>設立：</strong>2025年7月25日</li>
+              <li><strong>代表取締役：</strong>野尻 明宏</li>
+              <li><strong>事業内容：</strong>酵素ドリンク・発酵食品の製造・販売、OEM受託、健康支援</li>
+            </ul>
+          </div>
+          <div class="kv" role="img" aria-label="自然と発酵を象徴するイメージ"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>お問い合わせ</h2>
+        <p class="sub">OEM 製造のご相談や試作のご依頼は、以下からお気軽にどうぞ。</p>
+        <div class="contact-wrap">
+          <div class="contact-box">
+            <h3>ご連絡先</h3>
+            <ul class="contact-list">
+              <li>📧 <a href="mailto:kouso.inc@gmail.com">kouso.inc@gmail.com</a></li>
+              <li>📞 090-6982-5502（代表）</li>
+              <li>📍 佐賀県佐賀市高木瀬5-13-21</li>
+            </ul>
+            <p style="color:var(--muted); margin-top:10px">※ ラベル・ボトルなどパッケージ相談も可能です。先にターゲット・販売チャネルを共有いただけるとスムーズです。</p>
+          </div>
+          <div class="contact-box">
+            <h3>スピード相談フォーム（簡易）</h3>
+            <form onsubmit="event.preventDefault(); alert('ありがとうございます！内容を送信しました。');">
+              <label>お名前<br><input required type="text" style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); color:var(--white)"></label>
+              <div style="height:10px"></div>
+              <label>ご相談内容<br><textarea required rows="4" style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); color:var(--white)"></textarea></label>
+              <div style="height:12px"></div>
+              <button class="btn primary" type="submit" style="border:none">送信する</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 酵素株式会社. All rights reserved.</p>
+    <div class="container">
+      <small>© 2025 酵素株式会社 — 自然と技術で、命にエネルギーを。</small>
+    </div>
   </footer>
-
 </body>
 </html>
