@@ -358,8 +358,8 @@
 </form>
 
 <script>
-  // ★ここに Apps Script のウェブアプリURL（/exec）を貼る
-  const GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwIwzlr3rwD6QEwIg-5j1GXJ7n-n_kf1klB1gqqiV6hfi49KWxFYp7dos77teBoHV0m/exec';
+  // 本番の /exec URL を入れてください
+  const GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw1Mjq-lmDX49VNddIglhw59BVtJT74UDaEMaNVk744y4qQdX4ElxiFKu0C6nQDNPt3/exec';
 
   const form = document.getElementById('contactForm');
   const note = document.getElementById('formNote');
@@ -370,26 +370,22 @@
     note.textContent = '送信中です…';
     btn.disabled = true;
 
-    const fd = new FormData(form);
-    const payload = {
-      name: fd.get('name') || '',
-      email: fd.get('email') || '',
-      message: fd.get('message') || '',
-      hp: fd.get('hp') || ''
-    };
-
     try {
+      // ★ポイント：FormDataをそのまま渡す。headersは一切設定しない。
+      const fd = new FormData(form);
+
       const res = await fetch(GAS_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }, // JSONで送信
-        body: JSON.stringify(payload),
+        body: fd,          // ← 自動で multipart/form-data（プリフライト不要）
+        // headers: 付けない！
       });
 
+      // JSONを返せない環境でもOK/NGだけ判定
       let ok = false;
       try {
         const data = await res.json();
         ok = data.result === 'success';
-      } catch(_) {
+      } catch (_) {
         ok = res.ok;
       }
 
@@ -406,6 +402,7 @@
     }
   });
 </script>
+
 
           </div>
         </div>
