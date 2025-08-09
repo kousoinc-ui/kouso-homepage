@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>酵素株式会社 | 自然と技術で、<br>命にエネルギーを。</title>
+  <title>酵素株式会社 | 自然と技術で、命にエネルギーを。</title>
   <meta name="description" content="酵素株式会社は、自然由来の発酵技術で酵素ドリンクの製造・OEMを行う佐賀のものづくり企業です。小ロットから量産まで柔軟対応。" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
@@ -175,6 +175,108 @@
       linear-gradient(180deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.5) 50%, rgba(0,0,0,.4) 100%);
   }
 }
+/* ====== MOBILE FIX PACK ====== */
+:root{
+  --container-pad: 18px;
+}
+
+/* 文字のはみ出し防止 */
+* { word-break: break-word; }
+
+/* コンテナの左右余白（狭小端末での圧迫回避） */
+.container { width: min(1120px, 94%); }
+
+/* ヘッダー高さ分のアンカー位置ズレ補正 */
+section[id] { scroll-margin-top: 68px; }
+
+/* ナビが折り返す端末で横スクロール可能に（改行しない） */
+nav ul { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+nav a { white-space: nowrap; }
+
+/* iOSのフォーム拡大（ピンチズーム）を防止 */
+input, textarea, select, button { font-size: 16px; }
+
+/* --- ヒーロー（動画）まわり --- */
+.hero { 
+  min-height: 80svh; /* 安全なビューポート高さ */
+}
+.hero-inner{ 
+  padding: clamp(48px, 6vh, 72px) 0 clamp(32px, 4vh, 56px);
+}
+
+/* 動画のはみ出し・縦横比崩れの保険 */
+.hero-video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  max-height:100%;
+  transform: translateZ(0); /* iOSブラーとの相性改善 */
+}
+
+/* テキストの詰まり改善（モバイル） */
+.hero h1 { 
+  font-size: clamp(24px, 6.2vw, 36px);
+  line-height: 1.2;
+}
+.hero p.lead{ 
+  font-size: clamp(14px, 4.2vw, 16px);
+}
+
+/* CTAは小画面で100%幅に */
+.hero-actions { gap:10px; }
+@media (max-width: 980px){
+  .hero-actions .btn{ width:100%; justify-content:center; }
+}
+
+/* KPIカードは2列→1列の順で可読性UP */
+@media (max-width: 980px){
+  .hero-metrics{ grid-template-columns: 1fr; }
+  .metric{ padding:14px; }
+}
+
+/* セクション余白をモバイルで最適化 */
+section.section { 
+  padding: clamp(48px, 8vh, 80px) 0; 
+}
+
+/* カード/商品グリッドのガタつき解消＆余白調整 */
+.cards, .product-grid { gap: 14px; }
+.card, .product { 
+  width: 100%;
+}
+.product .thumb{
+  height: clamp(140px, 28vw, 180px);
+}
+
+/* アバウトのKVが縦に潰れないように */
+.kv{ min-height: 220px; }
+
+/* 連絡先の2カラムは早めに1カラムへ */
+@media (max-width: 980px){
+  .contact-wrap{ grid-template-columns: 1fr; }
+}
+
+/* フォーム要素のタップしやすさと見切れ防止 */
+#contactForm input, 
+#contactForm textarea{
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+}
+#submitBtn{ width:100%; }
+
+/* Stickyヘッダーとブラーのカクつき軽減（iOS対策） */
+header{ 
+  will-change: transform;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* 超狭幅（≤360px）での保険 */
+@media (max-width: 360px){
+  .badge{ font-size: 11px; padding:6px 10px; }
+  nav a{ padding:8px 10px; }
+}
 
 
   </style>
@@ -210,7 +312,7 @@
         <span class="badge">一期一会 — その一滴が、未来を変える</span>
         <div class="hero-grid">
           <div>
-            <h1>酵素のちからで、命にエネルギーを。</h1>
+            <h1>酵素のちからで、<br>命にエネルギーを。</h1>
             <p class="lead">自然素材 × 発酵技術 × 安心設計。OEM・ODMで小ロットから大量生産まで、貴社ブランドの酵素ドリンク製造をトータルサポートします。</p>
             <div class="hero-actions">
               <a class="btn primary" href="#contact">資料請求・OEM相談</a>
@@ -297,7 +399,11 @@
         <div class="about-grid">
           <div class="about-box">
             <h3>創業の想い</h3>
-            <p>祖父の介護と相続問題をきっかけに「命」と向き合い、信託銀行で人の想いと資産を守る仕事に従事。その後、実家の町工場の継承を見据え、自然と技術の融合を目指して「酵素株式会社」を設立しました。</p>
+            <p>祖父の介護をする中で、薬に頼らず自然の力で体調が少しずつ良くなる姿を見て、心から驚きと感動を覚えました。<br>
+              特に、自然発酵による酵素ドリンクを飲み続けることで、祖父の体が元気を取り戻していく様子は、
+              私に「命の力は自然の中にある」という確信を与えてくれました。<br>
+              この経験が、自分自身も多くの人に自然の恵みを届けたいという強い想いとなり、
+              「酵素株式会社」を立ち上げる原動力となりました。</p>
             <h3 style="margin-top:18px">会社概要</h3>
             <ul>
               <li><strong>会社名：</strong>酵素株式会社</li>
