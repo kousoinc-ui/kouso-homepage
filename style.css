@@ -68,3 +68,8 @@ nav a:hover{color:var(--white); background:rgba(255,255,255,.06)}
 section.section{padding:80px 0; border-top:1px solid rgba(255,255,255,.06)}
 .section h2{font-size:28px; margin:0 0 12px}
 .section .sub{color:var(--muted); ma
+
+              .post h2 { margin-top: 2.2rem; border-left: 4px solid #2FA96E; padding-left: .6rem; }
+.post blockquote { background: #f7fff9; border-left: 4px solid #2FA96E; margin: 1rem 0; padding: .8rem 1rem; }
+.post ul { margin: .8rem 0 1.2rem; }
+.post strong { font-weight: 700; }
