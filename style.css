@@ -73,3 +73,22 @@ section.section{padding:80px 0; border-top:1px solid rgba(255,255,255,.06)}
 .post blockquote { background: #f7fff9; border-left: 4px solid #2FA96E; margin: 1rem 0; padding: .8rem 1rem; }
 .post ul { margin: .8rem 0 1.2rem; }
 .post strong { font-weight: 700; }
+
+            .post h2 {
+  margin-top: 2rem;
+  border-left: 4px solid #2FA96E;
+  padding-left: .6rem;
+  font-size: 1.4rem;
+}
+.post ul {
+  margin: 0.8rem 0 1.2rem 1.2rem;
+  list-style: disc;
+}
+.post blockquote {
+  background: #f7fff9;
+  border-left: 4px solid #2FA96E;
+  padding: .8rem 1rem;
+  margin: 1.2rem 0;
+  font-style: italic;
+}
+
