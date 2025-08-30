@@ -1,1 +1,6 @@
-
+title: 酵素株式会社
+description: 自然素材 × 発酵技術 × OEM開発のパートナー
+theme: minima   # GitHub Pages対応のテーマ
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
