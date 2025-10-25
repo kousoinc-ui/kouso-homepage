@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <title>酵素株式会社 | 自然と技術で、命にエネルギーを。</title>
+  <title>酵素株式会社 | 発幸で、笑顔と喜びを循環させる。</title>
   <meta name="description" content="酵素株式会社は、自然由来の発酵技術で酵素ドリンクの製造・OEMを行う佐賀のものづくり企業です。小ロットから量産まで柔軟対応。" />
 
   <!-- Canonical & hreflang（※ご自身の公開URLに調整してください） -->
@@ -14,7 +14,7 @@
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="酵素株式会社 | 自然と技術で、命にエネルギーを。" />
+  <meta property="og:title" content="酵素株式会社 | 発幸で、笑顔と喜びを循環させる。" />
   <meta property="og:description" content="自然素材 × 発酵技術 × 安心設計。OEM・ODMで小ロットから大量生産まで、貴社ブランドの酵素ドリンク製造をトータルサポート。" />
   <meta property="og:url" content="https://kousoinc-ui.github.io/kouso-homepage/" />
   <meta property="og:image" content="https://kousoinc-ui.github.io/kouso-homepage/img/ogp.jpg" />
@@ -72,10 +72,19 @@ header { position:sticky; top:0; z-index:50; background:linear-gradient(180deg, 
 .logo { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.04em }
 .logo-mark { width:36px; height:36px; border-radius:12px; display:grid; place-items:center; background:conic-gradient(from 130deg, var(--gold), var(--brand), #0a0f0d 260deg); border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow) }
 .logo-mark span { font-weight:900 }
+nav { position:relative }
 nav ul { display:flex; gap:18px; list-style:none; padding:0; margin:0; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch }
 nav a { padding:10px 12px; border-radius:12px; color:var(--muted-strong); white-space:nowrap }
 nav a:hover { color:#fff; background:rgba(255,255,255,.08) }
 .cta { background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#fff; padding:10px 16px; border-radius:12px; font-weight:700; box-shadow:var(--shadow) }
+
+/* モバイルメニューのトグルボタン */
+.menu-toggle { display:none; align-items:center; gap:10px; border:1px solid var(--border-strong); background:rgba(255,255,255,.08); color:#fff; border-radius:12px; padding:10px 12px; font-weight:700 }
+.menu-toggle .bars { width:20px; height:14px; position:relative; display:inline-block }
+.menu-toggle .bars::before, .menu-toggle .bars::after, .menu-toggle .bars span { content:""; position:absolute; left:0; right:0; height:2px; background:#fff; border-radius:2px }
+.menu-toggle .bars::before { top:0 }
+.menu-toggle .bars span { top:6px }
+.menu-toggle .bars::after { bottom:0 }
 
 /* Hero */
 .hero { position:relative; overflow:hidden; min-height:80svh }
@@ -88,14 +97,14 @@ nav a:hover { color:#fff; background:rgba(255,255,255,.08) }
 .hero h1 .accent { position:relative; display:inline-block }
 .hero h1 .accent::after { content:""; position:absolute; left:0; bottom:-10px; width:72px; height:3px; border-radius:2px; background:linear-gradient(90deg, var(--gold), var(--brand-2)) }
 .hero p.lead { color:var(--muted-strong); font-size:clamp(15px, 2.2vw, 18px); max-width:60ch }
-.hero-actions { display:flex; gap:12px; margin-top:22px; flex-wrap:wrap }
+.hero-actions { display:flex; gap:12px; margin-top:100px; flex-wrap:wrap }
 .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border-radius:14px; font-weight:700; border:1px solid var(--border-strong); color:#fff }
 .btn.primary { background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:var(--shadow) }
 .btn.ghost { background:rgba(255,255,255,.18) }
 .hero-card { display:none }
 .hero-metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:12px; max-width:760px }
 .metric { padding:16px; border-radius:16px; background:rgba(255,255,255,.06); border:1px solid var(--border) }
-.metric .kpi { font-size:22px; font-weight:900 }
+.metric .kpi { font-size:16px; font-weight:900 }
 
 /* Section */
 section.section { padding:clamp(48px,8vh,80px) 0; border-top:1px solid var(--border) }
@@ -135,10 +144,35 @@ footer { padding:36px 0 56px; color:var(--muted-strong); text-align:center }
 
 /* Responsive */
 @media (max-width:980px){
+  /* ヘッダーの並びを調整 */
+  .nav { padding:10px 0 }
+  
+  /* トグルボタン表示 */
+  .menu-toggle { display:inline-flex }
+
+  /* PC並びのULは隠し、ドロップダウン化 */
+   nav ul{
+    position:absolute;
+    right:0; left:0;
+    top:48px;
+    display:none !important;           /* ← 強制で隠す（上のdisplay:flexを確実に打ち消し） */
+    flex-direction:column;
+    gap:0;
+    background:rgba(15,23,21,.96);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:8px;
+    box-shadow:var(--shadow);
+    z-index:9999;                      /* ← ヒーロー動画等より手前に出す */
+  }
+  nav ul.open{ display:flex !important } 
+  nav li { border-bottom:1px dashed rgba(255,255,255,.14) }
+  nav li:last-child { border-bottom:none }
+  nav a { display:block; padding:14px 12px }
+
+  /* 既存の項目 */
   .about-grid, .contact-wrap { grid-template-columns:1fr }
   .cards .card, .product-grid .product { grid-column:span 12 }
-  nav ul { gap:8px }
-  .nav { padding:10px 0 }
   .hero::after { background:linear-gradient(180deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.5) 50%, rgba(0,0,0,.4) 100%) }
   .hero-metrics { grid-template-columns:1fr }
   .metric { padding:14px }
@@ -188,8 +222,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <div class="logo-mark" aria-hidden="true"><span>酵</span></div>
         <div>酵素株式会社</div>
       </a>
+      
+      <!-- ▼ 追加：モバイル用メニューボタン -->
+      <button class="menu-toggle" aria-label="メニューを開閉" aria-controls="primary-menu" aria-expanded="false">
+        <span class="bars"><span></span></span>
+        メニュー
+      </button>
+      <!-- ▲ 追加ここまで -->
+
       <nav aria-label="主要ナビゲーション">
-        <ul>
+        <ul id="primary-menu">
           <li><a href="#service">サービス</a></li>
           <li><a href="#products">商品紹介</a></li>
           <li><a href="#about">私たちについて</a></li>
@@ -214,8 +256,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <div class="container hero-inner">
         <div class="hero-grid">
           <div>
-            <h1>酵素のちからで、<br>命にエネルギーを。</h1>
-            <p class="lead">自然素材 × 発酵技術 × 安心設計。OEM・ODMで小ロットから大量生産まで、貴社ブランドの酵素ドリンク製造をトータルサポートします。</p>
+            <h1>発幸で、<br>笑顔と喜びを循環させる</h1>
+             <p class="lead">
+          酵素株式会社は、自然のちからを通して、人も動物も植物も、すべての命が元気に、笑顔でいられる毎日をつくります。<br>
+          「発幸＝幸せを広げる」という理念のもと、地域社会や家庭に笑顔と喜びを届け、未来を共に創る会社です。
+        </p>
             <div class="hero-actions">
               <a class="btn primary" href="#contact" aria-label="資料請求・OEM相談フォームへ">資料請求・OEM相談</a>
               <a class="btn ghost" href="#products" aria-label="商品紹介セクションへ">商品をみる</a>
@@ -271,7 +316,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
               <img src="img/standard.png" alt="酵素ドリンク（スタンダード）" loading="lazy" decoding="async" width="640" height="400">
             </div>
             <div class="inner">
-              <h3>酵素ドリンク（スタンダード）</h3>
+              <h3>スタンダード酵素</h3>
               <p>毎日飲み続けやすいフルーツベースの酵素ドリンク。健康習慣の入口に最適です。</p>
             </div>
           </article>
@@ -464,7 +509,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           "addressCountry": "JP",
           "addressRegion": "佐賀県",
           "addressLocality": "佐賀市",
-          "streetAddress": "高木瀬5-13-21"
+          "streetAddress": "高木瀬5-21-13"
         },
         "email": "mailto:kouso.inc@gmail.com",
         "telephone": "+81-90-6982-5502",
@@ -495,7 +540,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
                 <label>会社名（空欄のまま）<input type="text" name="hp" autocomplete="off"></label>
               </div>
               <label>お名前<br>
-                <input required type="text" name="name" autocomplete="name"/> 
+                <input required type="text" name="name" autocomplete="name"/>
               </label>
               <div style="height:10px"></div>
               <label>メールアドレス（返信用）<br>
@@ -521,8 +566,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
                 btn.disabled = true;
                 try {
                   const fd = new FormData(form);
-                  const res = await fetch(GAS_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors' });
-                  // no-cors の場合でも即時OK表示（GAS側で受付）。必要に応じて CORS 設定に変更
+                  await fetch(GAS_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors' });
                   note.textContent = 'ありがとうございます！内容を送信しました。折り返しご連絡いたします。';
                   form.reset();
                 } catch (err) {
@@ -541,8 +585,60 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <nav aria-label="フッターナビゲーション">
         <a href="#service">サービス</a> · <a href="#products">商品紹介</a> · <a href="#about">会社情報</a> · <a href="#contact">お問い合わせ</a>
       </nav>
-      <small>© 2025 酵素株式会社 — 自然と技術で、命にエネルギーを。</small>
+      <small>© 2025 酵素株式会社 — 発幸で、笑顔と喜びを循環させる。</small>
     </div>
   </footer>
+
+  <!-- ▼ 追加：モバイルメニューの開閉スクリプト（アクセシビリティ対応） -->
+  <script>
+    (function(){
+      const toggle = document.querySelector('.menu-toggle');
+      const menu   = document.getElementById('primary-menu');
+      if(!toggle || !menu) return;
+
+      const closeMenu = () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('keydown', onKeydown);
+        document.removeEventListener('click', onClickAway);
+      };
+      const openMenu = () => {
+        menu.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        // 最初のリンクへフォーカスを送る
+        const firstLink = menu.querySelector('a');
+        if(firstLink) firstLink.focus({ preventScroll:true });
+        document.addEventListener('keydown', onKeydown);
+        setTimeout(() => document.addEventListener('click', onClickAway));
+      };
+      const onKeydown = (e) => {
+        if(e.key === 'Escape') { closeMenu(); toggle.focus(); }
+      };
+      const onClickAway = (e) => {
+        if(!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+      };
+
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        expanded ? closeMenu() : openMenu();
+      });
+
+      // メニュー内リンクをクリックしたら自動で閉じる
+      menu.addEventListener('click', (e) => {
+        const t = e.target;
+        if (t.closest && t.closest('a')) closeMenu();
+      });
+
+      // リサイズでPC幅に戻ったら状態リセット
+      const mql = window.matchMedia('(min-width: 981px)');
+      mql.addEventListener('change', (ev) => {
+        if(ev.matches) { // PC表示へ
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+  </script>
+  <!-- ▲ 追加ここまで -->
 </body>
 </html>
