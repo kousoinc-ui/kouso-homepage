@@ -175,6 +175,26 @@
             .hero-content h2 { font-size: 1.8rem; }
             .section { padding: 60px 0; }
         }
+        /* スマホ用（768px以下）のヘッダー調整 */
+@media (max-width: 768px) {
+    header .container {
+        padding: 0 15px; /* コンテナの左右余白を少し詰めて横幅を確保 */
+    }
+
+    h1 {
+        font-size: 1.1rem !important; /* 文字サイズを一段階小さく */
+        white-space: nowrap;         /* 絶対に改行させない指示 */
+        letter-spacing: 0.1em;       /* 字間を少し詰めて1行に収まりやすくする */
+    }
+
+    nav ul {
+        gap: 12px; /* メニューの間隔も少し詰める */
+    }
+
+    nav a {
+        font-size: 0.7rem; /* メニューの文字も少しだけ小さく */
+    }
+}
         /* Instagramセクションのスタイル */
 .insta-grid {
     display: grid;
