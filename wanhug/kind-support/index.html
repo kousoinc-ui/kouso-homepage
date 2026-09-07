@@ -39,6 +39,23 @@
             box-shadow: 0 0 24px rgba(80, 52, 28, .08);
         }
 
+        @media screen and (min-width: 769px) {
+            body {
+                background-color: #f7f5f0;
+                background-image: url("./img/lp-bg-linen.webp");
+                background-repeat: no-repeat;
+                background-position: center top;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+            .lp-wrapper {
+                border-right: 1px solid rgba(117, 94, 70, .08);
+                border-left: 1px solid rgba(117, 94, 70, .08);
+                box-shadow: 0 0 32px rgba(83, 65, 45, .16);
+            }
+        }
+
         .lp-image {
             display: block;
             width: 100%;
@@ -55,6 +72,27 @@
         .feed-video-wrap {
             position: relative;
             width: 100%;
+        }
+
+        .kidney-function-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .kidney-function-media {
+            display: block;
+            position: absolute;
+            top: 29.45%;
+            left: 4.8%;
+            z-index: 2;
+            width: 90.4%;
+            background: #fffdf8;
+        }
+
+        .kidney-function-media img {
+            display: block;
+            width: 100%;
+            height: auto;
         }
 
         .feed-video {
@@ -81,6 +119,84 @@
             z-index: 1;
             width: 90.4%;
             height: auto;
+        }
+
+        .jinzo-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .jinzo-overlay {
+            position: absolute;
+            bottom: 2.2%;
+            left: 5.8%;
+            width: 88.4%;
+            opacity: 0;
+            transform: translateY(18px) scale(.96);
+            transform-origin: center bottom;
+        }
+
+        .jinzo-wrap.is-visible .jinzo-overlay {
+            animation: jinzoReveal .65s cubic-bezier(.2, .8, .2, 1) forwards;
+        }
+
+        .jinzo-art {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .jinzo-wrap.is-visible .jinzo-art {
+            animation: jinzoEmphasis 2.4s ease-in-out .7s infinite;
+        }
+
+        .balance-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .balance-word {
+            position: absolute;
+            z-index: 2;
+            opacity: 0;
+            pointer-events: none;
+            transform-origin: center;
+        }
+
+        .balance-word img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .balance-tasu {
+            top: 8%;
+            left: 23.33%;
+            width: 53.33%;
+            transform: translateY(12px) scale(.72);
+        }
+
+        .balance-herasu {
+            top: 40.2%;
+            left: 24.13%;
+            width: 50.67%;
+            transform: translateY(-8px) scale(1.28);
+        }
+
+        .balance-tasu.is-visible {
+            animation: balanceAddReveal .65s cubic-bezier(.2, .8, .2, 1) forwards;
+        }
+
+        .balance-herasu.is-visible {
+            animation: balanceReduceReveal .65s cubic-bezier(.2, .8, .2, 1) forwards;
+        }
+
+        .balance-tasu.is-visible img {
+            animation: balanceAddEmphasis 2.4s ease-in-out .7s infinite;
+        }
+
+        .balance-herasu.is-visible img {
+            animation: balanceReduceEmphasis 2.4s ease-in-out .7s infinite;
         }
 
         .review-gif-wrap {
@@ -163,6 +279,91 @@
 
             100% {
                 left: 130%;
+            }
+        }
+
+        @keyframes jinzoReveal {
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes jinzoEmphasis {
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(244, 193, 0, 0));
+            }
+
+            50% {
+                transform: scale(1.025);
+                filter: drop-shadow(0 0 10px rgba(244, 193, 0, .3));
+            }
+        }
+
+        @keyframes balanceAddReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(12px) scale(.72);
+            }
+
+            70% {
+                opacity: 1;
+                transform: translateY(-2px) scale(1.06);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes balanceReduceReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(-8px) scale(1.28);
+            }
+
+            70% {
+                opacity: 1;
+                transform: translateY(2px) scale(.96);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes balanceAddEmphasis {
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(239, 96, 14, 0));
+            }
+
+            50% {
+                transform: scale(1.035);
+                filter: drop-shadow(0 0 9px rgba(239, 96, 14, .28));
+            }
+        }
+
+        @keyframes balanceReduceEmphasis {
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(130, 166, 61, 0));
+            }
+
+            50% {
+                transform: scale(.965);
+                filter: drop-shadow(0 0 9px rgba(130, 166, 61, .3));
             }
         }
 
@@ -597,6 +798,16 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+            .jinzo-overlay,
+            .balance-word {
+                opacity: 1;
+                transform: none;
+            }
+
+            .jinzo-wrap.is-visible .jinzo-overlay,
+            .jinzo-wrap.is-visible .jinzo-art,
+            .balance-word.is-visible,
+            .balance-word.is-visible img,
             .quick-trust-cta,
             .fixed-cv a,
             .fixed-cv-arrow,
@@ -636,16 +847,35 @@
 
         <img src="./img/wankosokind_2.webp" alt="わん酵素 LP 2" class="lp-image" width="750" height="942" loading="lazy" decoding="async">
         <img src="./img/wankosokind_3.webp" alt="わん酵素 LP 3" class="lp-image" width="750" height="1075" loading="lazy" decoding="async">
-        <img src="./img/wankosokind_4.webp" alt="わん酵素 LP 4" class="lp-image" width="750" height="689" loading="lazy" decoding="async">
-        <img src="./img/wankosokind_5.webp" alt="わん酵素 LP 5" class="lp-image" width="750" height="547" loading="lazy" decoding="async">
-        <img src="./img/wankosokind_6.webp" alt="わん酵素 LP 6" class="lp-image" width="750" height="1674" loading="lazy" decoding="async">
-        <img src="./img/wankosokind_7.webp" alt="わん酵素 LP 7" class="lp-image" width="750" height="1083" loading="lazy" decoding="async">
-        <img src="./img/wankosokind_8.webp" alt="わん酵素 LP 8" class="lp-image" width="750" height="1749" loading="lazy" decoding="async">
+        <img src="./img/nayami.webp" alt="毎日そばにいるから気づく愛犬の小さな変化チェック" class="lp-image" width="750" height="1055" loading="lazy" decoding="async">
+        <img src="./img/jinzo_1.webp" alt="気になる変化には腎臓が関係している可能性" class="lp-image" width="750" height="325" loading="lazy" decoding="async">
+        <div class="kidney-function-wrap">
+            <img src="./img/wankosokind_6.webp" alt="愛犬の腎臓の働きについて" class="lp-image" width="750" height="1674" loading="lazy" decoding="async">
+            <picture class="kidney-function-media">
+                <source media="(prefers-reduced-motion: reduce)" srcset="./img/kidney-function-static.webp">
+                <img src="./img/kidney-function.gif" alt="腎臓が血液をろ過し、不要なものを尿として体の外へ出す流れ" width="750" height="680" loading="lazy" decoding="async">
+            </picture>
+        </div>
+        <div class="jinzo-wrap">
+            <img src="./img/wankosokind_7.webp" alt="年齢を重ねたワンちゃんと腎臓の負担について" class="lp-image" width="750" height="1187" loading="lazy" decoding="async">
+            <div class="jinzo-overlay">
+                <img src="./img/jinzo.png" alt="腎臓が頑張りすぎているサインかもしれません" class="jinzo-art" width="663" height="286" loading="lazy" decoding="async">
+            </div>
+        </div>
+        <div class="balance-wrap">
+            <img src="./img/wankosokind_8.webp" alt="足すより減らすという考え方で腎臓の負担に配慮したわん酵素" class="lp-image" width="750" height="1749" loading="lazy" decoding="async">
+            <span class="balance-word balance-tasu" aria-hidden="true">
+                <img src="./img/tasu.png" alt="" width="400" height="153" loading="lazy" decoding="async">
+            </span>
+            <span class="balance-word balance-herasu" aria-hidden="true">
+                <img src="./img/herasu.png" alt="" width="380" height="102" loading="lazy" decoding="async">
+            </span>
+        </div>
         <img src="./img/wankosokind_9.webp" alt="わん酵素 LP 9" class="lp-image" width="750" height="1629" loading="lazy" decoding="async">
         <img src="./img/wankosokind_10.webp" alt="わん酵素 LP 10" class="lp-image" width="750" height="1382" loading="lazy" decoding="async">
         <div class="feed-video-wrap">
             <img src="./img/wankosokind_11.webp" alt="いつものごはんにわん酵素をかける方法" class="lp-image" width="750" height="1303" loading="lazy" decoding="async">
-            <video class="feed-video js-inview-video" src="./feed.mov" muted loop playsinline preload="metadata" aria-label="わん酵素をいつものごはんにかける動画"></video>
+            <video class="feed-video js-inview-video" src="./feed.mp4" muted loop playsinline preload="metadata" aria-label="わん酵素をいつものごはんにかける動画"></video>
         </div>
         <img src="./img/wankosokind_12.webp" alt="わん酵素 LP 12" class="lp-image" width="750" height="1903" loading="lazy" decoding="async">
 
@@ -693,9 +923,16 @@
                 </details>
 
                 <details class="qa-item">
-                    <summary class="qa-question">5日間体験セットには何が入っていますか？</summary>
+                    <summary class="qa-question">体験セットには何が入っていますか？</summary>
                     <div class="qa-answer">
                         <p>10ml入りの「わん酵素」を5包お届けします。ワンちゃんの体重によって1日の目安量が異なるため、下記の「1日に与える量の目安」もあわせてご確認ください。</p>
+                    </div>
+                </details>
+
+                <details class="qa-item">
+                    <summary class="qa-question">「5日間体験」とはどういう意味ですか？</summary>
+                    <div class="qa-answer">
+                        <p>2〜5kgのワンちゃんが1日1包を目安に与える場合、5包を5日間お試しいただけるセットです。体重によって1日の目安量が異なるため、実際にお試しいただける日数も異なります。<br><br>5日間で特定の変化や効果を保証するものではありません。まずは味や与えやすさ、毎日のごはんに無理なく取り入れられるかを確認する機会としてお試しください。</p>
                     </div>
                 </details>
 
@@ -924,6 +1161,32 @@
                 inViewVideos.forEach(video => videoObserver.observe(video));
             } else {
                 inViewVideos.forEach(playVideo);
+            }
+
+            const jinzoWrap = document.querySelector(".jinzo-wrap");
+            if (jinzoWrap && "IntersectionObserver" in window) {
+                const jinzoObserver = new IntersectionObserver(entries => {
+                    if (!entries.some(entry => entry.isIntersecting)) return;
+                    jinzoWrap.classList.add("is-visible");
+                    jinzoObserver.disconnect();
+                }, { threshold: 0.35 });
+                jinzoObserver.observe(jinzoWrap);
+            } else if (jinzoWrap) {
+                jinzoWrap.classList.add("is-visible");
+            }
+
+            const balanceWords = document.querySelectorAll(".balance-word");
+            if (balanceWords.length && "IntersectionObserver" in window) {
+                const balanceObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.add("is-visible");
+                        balanceObserver.unobserve(entry.target);
+                    });
+                }, { threshold: 0.6 });
+                balanceWords.forEach(word => balanceObserver.observe(word));
+            } else {
+                balanceWords.forEach(word => word.classList.add("is-visible"));
             }
 
             document.addEventListener("click", event => {
