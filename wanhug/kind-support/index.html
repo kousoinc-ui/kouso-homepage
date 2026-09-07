@@ -79,6 +79,51 @@
             width: 100%;
         }
 
+        .fermentation-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .fermentation-base,
+        .fermentation-base img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .fermentation-gif {
+            display: block;
+            position: absolute;
+            top: 21.38%;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+        }
+
+        .more-heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 0;
+            padding: 24px 20px 20px;
+            color: #ef6513;
+            background: #fffaf2;
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .more-heading::before,
+        .more-heading::after {
+            width: 54px;
+            height: 2px;
+            background: #f6b65e;
+            content: "";
+        }
+
         .kidney-function-media {
             display: block;
             position: absolute;
@@ -798,6 +843,10 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+            .fermentation-gif {
+                display: none;
+            }
+
             .jinzo-overlay,
             .balance-word {
                 opacity: 1;
@@ -872,7 +921,15 @@
             </span>
         </div>
         <img src="./img/wankosokind_9.webp" alt="わん酵素 LP 9" class="lp-image" width="750" height="1629" loading="lazy" decoding="async">
-        <img src="./img/wankosokind_10.webp" alt="わん酵素 LP 10" class="lp-image" width="750" height="1382" loading="lazy" decoding="async">
+        <p class="more-heading">さらに</p>
+        <img src="./img/kodawari1.webp" alt="100種類以上の植物性素材と10年熟成の種菌を使った、わん酵素の素材と発酵へのこだわり" class="lp-image" width="750" height="1347" loading="lazy" decoding="async">
+        <div class="fermentation-wrap">
+            <picture class="fermentation-base">
+                <source media="(prefers-reduced-motion: reduce)" srcset="./img/kodawari-static.webp">
+                <img src="./img/kodawari-base.webp" alt="発酵の力で栄養素を取り込みやすい形へ届ける、わん酵素の発酵へのこだわり" width="750" height="1347" loading="lazy" decoding="async">
+            </picture>
+            <img src="./img/kodawari-fermentation.gif" alt="発酵前、発酵中、発酵後へと素材が変化する様子" class="fermentation-gif" width="750" height="290" loading="lazy" decoding="async">
+        </div>
         <div class="feed-video-wrap">
             <img src="./img/wankosokind_11.webp" alt="いつものごはんにわん酵素をかける方法" class="lp-image" width="750" height="1303" loading="lazy" decoding="async">
             <video class="feed-video js-inview-video" src="./feed.mp4" muted loop playsinline preload="metadata" aria-label="わん酵素をいつものごはんにかける動画"></video>
